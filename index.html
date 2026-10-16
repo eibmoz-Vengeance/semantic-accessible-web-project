@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Number Game</title>
+  <link rel="stylesheet" href="style-x.css">
+</head>
+<body>
+  <div class="top-shim"></div>
+
+  <!-- Functional navigation must remain available to assistive technology. -->
+  <nav class="subtle-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="./index.html">Home</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./about.html">About</a>
+    </div>
+  </nav>
+
+  <header class="top-header">
+    <h1><em>I'm thinking of a number between 1 and 100...</em></h1>
+  </header>
+
+  <main class="content-wrapper" tabindex="-1">
+    <div id="top-container" class="top-container" aria-hidden="true"></div>
+
+    <section id="guess-section" aria-labelledby="guess-heading">
+      <h2 id="guess-heading" class="visually-hidden">Make Your Guess</h2>
+
+      <div class="game-interface">
+        <form id="guess-form" class="guess-form">
+          <label for="user-number" class="visually-hidden">Enter your number guess</label>
+          <!-- Text + numeric input mode avoids some number-field clearing quirks. -->
+          <input
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            maxlength="3"
+            id="user-number"
+            name="user-number"
+            autocomplete="off"
+            required
+          >
+
+          <fieldset class="wager-actions">
+            <legend class="visually-hidden">Select your wager amount</legend>
+            <button type="submit" name="wager" value="5" data-wager="5">Wager 5</button>
+            <button type="submit" name="wager" value="10" data-wager="10">Wager 10</button>
+            <button type="submit" name="wager" value="20" data-wager="20">Wager 20</button>
+            <button type="submit" name="wager" value="50" data-wager="50">Wager 50</button>
+            <button type="submit" name="wager" value="100" data-wager="100">Wager 100</button>
+          </fieldset>
+        </form>
+
+        <aside class="score-display" aria-label="Game scores">
+          <p id="points-remaining" class="points-remaining">
+            Points Remaining: <strong id="points-value">100</strong>
+          </p>
+          <p id="high-score" class="points-high">
+            High Score: <strong id="high-score-value">100</strong>
+          </p>
+          <button type="button" id="reset-game-button">Restart Game</button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Only this dedicated live region announces game feedback to screen readers. -->
+    <div id="game-announcement" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Visible feedback is not a live region, avoiding duplicate announcements. -->
+    <section class="main-display-section" id="game-message" aria-label="Game feedback"></section>
+
+    <!--
+      TOP DECORATIVE SVG CURVE
+      viewBox="0 0 800 120" creates an internal coordinate space:
+      x ranges from 0 to 800; y ranges from 0 to 120.
+      M0,32: move to x=0, y=32 (start point).
+      C320,96: first Bézier control point; it pulls the curve toward x=320, y=96.
+      1024,0: second control point; it pulls the curve toward x=1024, y=0.
+      800,64: endpoint of this curved segment (x=800, y=64).
+      L1880,120: draw a straight line to x=1880, y=120.
+      L0,120: draw to the bottom-left corner; Z closes the shape.
+      Note: x=1024 and x=1880 exceed the viewBox's right edge (x=800), so those portions
+      are outside the visible coordinate area and may be clipped. Keep coordinates within 0–800
+      for a curve that stays inside the viewBox. Adjust the C control-point pairs to change the arc;
+      adjust L points to change the fill boundary. preserveAspectRatio="none" stretches the SVG.
+    -->
+    <svg class="curve-svg curve-top" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0,32 C320,96 1024,0 800,64 L1880,120 L0,120 Z" fill="#333333"></path>
+    </svg>
+
+    <!--
+      BOTTOM DECORATIVE SVG CURVE (flipped vertically by CSS)
+      M0,88: start at x=0, y=88.
+      C320,24: first control point; 1024,120: second control point; 800,56: curve endpoint.
+      L800,120 and L0,120 set the filled lower edge; Z closes the path.
+      Note: x=1024 is beyond the viewBox's right edge (x=800), so that control point lies outside
+      the visible coordinate area. Change the C coordinate pairs to change the curve's shape.
+    -->
+    <svg class="curve-svg curve-bottom" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0,88 C320,24 1024,120 800,56 L800,120 L0,120 Z" fill="#333333"></path>
+    </svg>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Semantic Accessible Web Project. All rights reserved.</p>
+  </footer>
+
+  <script src="script-x.js" defer></script>
+</body>
+</html>

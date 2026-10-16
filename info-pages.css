@@ -1,0 +1,262 @@
+/*
+ * SEMANTIC ACCESSIBLE WEB PROJECT
+ * Supporting styles for about.html and contact.html
+ *
+ * These pages intentionally use a quieter, more neutral layout than the game.
+ * The navigation and footer borrow only a few subtle visual cues from the game
+ * stylesheet. Keeping these rules separate prevents game-specific styling from
+ * leaking into informational pages.
+ */
+
+:root {
+    color-scheme: dark;
+    --page-bg: #101a22;
+    --page-panel: #17252d;
+    --page-text: #eef3f5;
+    --page-muted: #c4d0d5;
+    --page-accent: #70d9d2;
+    --page-border: rgba(220, 240, 240, 0.18);
+    --page-glow: rgba(112, 217, 210, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--page-bg);
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(ellipse at 50% 0%, var(--page-glow), transparent 48%),
+        var(--page-bg);
+    color: var(--page-text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+a {
+    color: var(--page-accent);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--page-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1001;
+    padding: 0.65rem 0.9rem;
+    transform: translateY(-160%);
+    background: #ffffff;
+    color: #101a22;
+    border-radius: 0.25rem;
+    font-weight: 700;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+/* Creates breathing room beneath the absolutely positioned navigation. */
+.top-shim {
+    height: 4.5rem;
+    flex: 0 0 auto;
+}
+
+/* Subtle navigation inspired by the game's navigation, without game styling. */
+.subtle-nav {
+    position: absolute;
+    top: 33px;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    min-height: 22px;
+    padding: 0.25rem 0.75rem;
+    background: rgba(10, 16, 20, 0.48);
+    border-bottom: 1px solid rgba(112, 217, 210, 0.22);
+    box-shadow: 0 0 34px rgba(112, 217, 210, 0.08);
+    backdrop-filter: blur(6px);
+}
+
+.nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 3rem);
+}
+
+.subtle-nav a {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    color: #d8e3e6;
+    font-size: 0.75rem;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 180ms ease, text-shadow 180ms ease;
+}
+
+.subtle-nav a:hover,
+.subtle-nav a:focus-visible,
+.subtle-nav a[aria-current="page"] {
+    color: var(--page-accent);
+    text-shadow: 0 0 12px rgba(112, 217, 210, 0.35);
+}
+
+.page-header {
+    width: min(100% - 2rem, 850px);
+    margin: 2rem auto 1.5rem;
+    padding: clamp(1.25rem, 4vw, 2.5rem) 0 1.25rem;
+    border-bottom: 1px solid var(--page-border);
+}
+
+.eyebrow {
+    margin: 0 0 0.35rem;
+    color: var(--page-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+h1,
+h2 {
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 650;
+    letter-spacing: -0.035em;
+}
+
+.intro {
+    max-width: 42rem;
+    margin: 0.75rem 0 0;
+    color: var(--page-muted);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+}
+
+.content {
+    width: min(100% - 2rem, 850px);
+    margin: 0 auto;
+    padding: 0 0 3rem;
+    flex: 1 0 auto;
+}
+
+.content section {
+    margin: 0 0 2rem;
+    padding: 0 0 1.5rem;
+    border-bottom: 1px solid var(--page-border);
+}
+
+.content h2 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.25rem, 3vw, 1.55rem);
+    font-weight: 650;
+}
+
+.content p {
+    max-width: 72ch;
+    margin: 0 0 1rem;
+}
+
+.content ul {
+    max-width: 72ch;
+    padding-left: 1.4rem;
+}
+
+.content li {
+    margin: 0 0 0.55rem;
+    padding-left: 0.2rem;
+}
+
+.closing-note,
+.status-note {
+    margin-top: 2rem;
+    padding: 1rem 1.1rem;
+    border-left: 3px solid var(--page-accent);
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--page-muted);
+}
+
+.closing-note {
+    font-size: 1.05rem;
+    font-style: italic;
+}
+
+.contact-content {
+    max-width: 850px;
+}
+
+.site-footer {
+    margin-top: auto;
+    padding: 1.35rem 1rem;
+    border-top: 1px solid rgba(112, 217, 210, 0.18);
+    background: rgba(6, 13, 17, 0.42);
+}
+
+.site-footer p {
+    margin: 0;
+    color: var(--page-muted);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .top-shim {
+        height: 5rem;
+    }
+
+    .subtle-nav {
+        top: 12px;
+        padding-inline: 0.35rem;
+    }
+
+    .nav-inner {
+        gap: 0.45rem;
+    }
+
+    .subtle-nav a {
+        padding: 0.35rem;
+        font-size: 0.68rem;
+    }
+
+    .page-header {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

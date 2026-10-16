@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn about the Semantic Accessible Web Project, an early exploration of easier-to-use web experiences for people, assistive technologies, and AI.">
+    <title>About | Semantic Accessible Web Project</title>
+    <link rel="stylesheet" href="./info-pages.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="top-shim" aria-hidden="true"></div>
+    <nav class="subtle-nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="./index.html">Home</a>
+            <a href="./about.html" aria-current="page">About</a>
+            <a href="./contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <p class="eyebrow">Semantic Accessible Web Project</p>
+        <h1>About This Project</h1>
+        <p class="intro">Exploring a web that is easier to understand, navigate, and use.</p>
+    </header>
+
+    <main id="main-content" class="content">
+        <section aria-labelledby="purpose-heading">
+            <h2 id="purpose-heading">The idea we're exploring</h2>
+            <p>
+                The Semantic Accessible Web Project is an early, small-scale exploration of
+                how thoughtful structure, accessibility, and separation of concerns can make
+                websites and web applications easier to use and easier to develop.
+            </p>
+            <p>
+                Our long-term interest is an <strong>ease-of-use library</strong>: reusable
+                tools and patterns that could help developers build experiences that make
+                sense to people, work well with assistive technologies, and expose clearer,
+                more meaningful structure for AI-powered and other machine-assisted
+                interactions.
+            </p>
+            <p>
+                This is an area for learning and experimentation, not a claim that one
+                library or technique can solve every accessibility or AI interaction
+                challenge. The aim is to explore practical ideas, test them, learn from the
+                results, and improve them over time.
+            </p>
+        </section>
+
+        <section aria-labelledby="game-heading">
+            <h2 id="game-heading">Why start with a number-guessing game?</h2>
+            <p>
+                The interactive number-guessing game is our first test case. It gives us a
+                manageable place to explore feedback, keyboard interaction, screen-reader
+                announcements, clear controls, and the separation of game logic from the
+                way information is presented.
+            </p>
+            <p>
+                The game is a simple demonstration for a school assignment that helped spark
+                this interest. It includes some additional layers to illustrate the idea;
+                it is <strong>not the finished library</strong>, and the reusable library
+                code is not currently included in this game project.
+            </p>
+            <p>
+                Any future library implementation will be developed and tested separately.
+                If that work becomes dependable and useful, it may eventually replace the
+                simple demonstration with a more reusable approach.
+            </p>
+        </section>
+
+        <section aria-labelledby="principles-heading">
+            <h2 id="principles-heading">What we hope to learn</h2>
+            <ul>
+                <li>How semantic HTML and appropriate accessibility features can make interfaces easier to understand.</li>
+                <li>How to provide useful feedback without unnecessary or repetitive announcements.</li>
+                <li>How to keep interface behavior, application logic, and presentation concerns clearly separated.</li>
+                <li>How reusable patterns might support websites, web applications, and interactive experiences such as games.</li>
+                <li>How clearer structure and predictable interactions might also help AI systems work with web experiences more reliably.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="status-heading">
+            <h2 id="status-heading">A hobby project, built gradually</h2>
+            <p>
+                Flat Tire Studio intends to explore this idea gradually as a hobby project.
+                For now, we are experimenting with the concept and learning from a small
+                example rather than presenting a finished product or promising a release
+                date.
+            </p>
+            <p>
+                We believe better assistive technology and more usable digital experiences
+                are worth exploring together. We are not asking others to credit us for the
+                general idea of accessibility or ease of use. If the project develops into
+                something practical, we may explore collaboration and an open-source release
+                with others who share these goals.
+            </p>
+            <p>
+                For now, this page records the direction we are exploring—not a finished
+                specification, a released library, or a request for contributions.
+            </p>
+        </section>
+
+        <p class="closing-note">
+            The web should not require users to understand the interface before the interface
+            understands the user.
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Semantic Accessible Web Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>
